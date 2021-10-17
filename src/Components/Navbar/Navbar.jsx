@@ -1,21 +1,27 @@
-import React from 'react'
+import React,{useState} from 'react'
 import styles from './Navbar.module.css'
-import logo from '../../src/assets/logo.svg'
+import logo from '../../../src/assets/logo.svg'
 // import search from '../../src/assets/search.svg'
 // import camera from '../../src/assets/camera.svg'
-import person from '../../src/assets/person.png'
-import heart from '../../src/assets/heart.png'
-import bag from '../../src/assets/bag.png'
-import menu from '../../src/assets/menu.png'
+import person from '../../../src/assets/person.png'
+import heart from '../../../src/assets/heart.png'
+import bag from '../../../src/assets/bag.png'
+import menu from '../../../src/assets/menu.png'
 import { style } from '@mui/system'
+import Sidebar from '../Sidebar/Sidebar'
 
 export default function Navbar() {
+    const [openMenu, setOpenMenu] = useState(false)
+    const openMenuHandling=()=>{
+        setOpenMenu(!openMenu)
+    }
     return (
         <div className={styles.NavContainer}>
             <nav className={styles.Nav}>
-                <div className={styles.menu}>
+                {openMenu?<Sidebar/>: <div className={styles.menu} onClick={openMenuHandling()}>
                     <img src={menu} alt="menu"/>
-                </div>
+                </div> }
+               
            
                 <div className={styles.Logo}>
                     <img src={logo} alt="" />
