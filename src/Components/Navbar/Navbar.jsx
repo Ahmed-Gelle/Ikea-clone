@@ -1,7 +1,9 @@
-import React,{useState} from 'react'
+import React,{useContext} from 'react'
 import styles from './Navbar.module.css'
 import logo from '../../../src/assets/logo.svg'
 // import search from '../../src/assets/search.svg'
+import {MenuContext} from '../../App'
+
 // import camera from '../../src/assets/camera.svg'
 import person from '../../../src/assets/person.png'
 import heart from '../../../src/assets/heart.png'
@@ -11,16 +13,21 @@ import { style } from '@mui/system'
 import Sidebar from '../Sidebar/Sidebar'
 
 export default function Navbar() {
-    const [openMenu, setOpenMenu] = useState(false)
+    const {openMenu, setOpenMenu} = useContext(MenuContext)
+    // console.log(`this is outside${openMenu}`)
     const openMenuHandling=()=>{
         setOpenMenu(!openMenu)
+        // console.log(`this is inside${openMenu}`)
+
     }
     return (
+        <>
+        {openMenu? <Sidebar/>:''}
         <div className={styles.NavContainer}>
             <nav className={styles.Nav}>
-                {openMenu?<Sidebar/>: <div className={styles.menu} onClick={openMenuHandling()}>
+                 <div className={styles.menu} onClick={()=>openMenuHandling()}>
                     <img src={menu} alt="menu"/>
-                </div> }
+                </div> 
                
            
                 <div className={styles.Logo}>
@@ -73,15 +80,16 @@ export default function Navbar() {
                                 <img className={style.icons} src={bag} alt="person" />
                             </a>
                         </li>
-                        <li>
+                        {/* <li>
                             <a className={style.link} href="/">
                                 <img className={style.icons} src={menu} alt="person" />
                             </a>
-                        </li>
+                        </li> */}
                         
                     </ul>
                 </div>
             </nav>
         </div>
+        </>
     )
 }

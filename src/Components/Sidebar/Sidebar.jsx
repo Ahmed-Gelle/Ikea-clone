@@ -1,135 +1,94 @@
-import React from 'react'
-import styles from './Sidebar.module.scss'
+import React, { useContext } from "react";
+import Modal from "react-modal";
+import { MenuContext } from "../../App";
+import logo from "../../../src/assets/logo.svg";
+import close from "../../../src/assets/close-icon.svg";
+import styles from "./Sidebar.module.scss";
+import { Link } from "@mui/material";
 
-export default function Sidebar() {
-    return (
-        <div>
-            <section className={styles.app}>
-  <aside className={styles.sidebar}>
-         <header>
-        Menu
-      </header>
-    <nav className={styles.sidebarNav}>
- 
-      <ul>
-        <li>
-          <a href="/"> <span>Shop</span></a>
-          <ul className={styles.navf}>
-            <li>
-              <a href="/">Derps</a>
-            </li>
-            <li>
-              <a href="/">Times</a>
-            </li>
-            <li>
-              <a href="/">Hates</a>
-            </li>
-            <li>
-              <a href="/">Beat</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="/"> <span class="">Controls</span></a>
-          <ul className={styles.navf}>
-            <li>
-              <a href="/">Watch</a>
-            </li>
-            <li>
-              <a href="/">Creeper</a>
-            </li>
-            <li>
-              <a href="/">Hate</a>
-            </li>
-            <li>
-              <a href="/">Grinder</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="/"> <span class="">Folio</span></a>
-          <ul className={styles.navf}>
-            <li>
-              <a href="/">Burn</a>
-            </li>
-            <li>
-              <a href="/">Bulbs</a>
-            </li>
-            <li>
-              <a href="/">Where You</a>
-            </li>
-            <li>
-              <a href="/">On Lock</a>
-            </li>
-             <li>
-              <a href="/">Ghostface</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="/"> <span class="">Graphicals</span></a>
-          <ul className={styles.navf}>
-            <li>
-              <a href="/">Timers</a>
-            </li>
-            <li>
-              <a href="/">You Lose</a>
-            </li>
-            <li>
-              <a href="/">Stormy</a>
-            </li>
-            <li>
-              <a href="/">Lookie Look</a>
-            </li>
-            <li>
-              <a href="/">Dork Mfer</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="/"> <span class="">Papers</span></a>
-          <ul className={styles.navf}>
-            <li>
-              <a href="/">File Cab</a>
-            </li>
-            <li>
-              <a href="/">Infos</a>
-            </li>
-            <li>
-              <a href="/">Planes</a>
-            </li>
-            <li>
-              <a href="/">Shop</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="/"> <span class="">Ass Finder</span></a>
-          <ul className={styles.navf}>
-            <li>
-              <a href="/">Burn</a>
-            </li>
-            <li>
-              <a href="/">Bulbs</a>
-            </li>
-            <li>
-              <a href="/">Where You</a>
-            </li>
-            <li>
-              <a href="/">On Lock</a>
-            </li>
-             <li>
-              <a href="/">Ghostface</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="/"> <span class="">Cocaine</span></a>
-        </li>
-      </ul>
-    </nav>
-  </aside>
-</section>
+const customStyles = {
+  content: {
+    top: "0",
+    left: "0",
+    width: "30%",
+    
+  },
+};
+
+function App() {
+  let subtitle;
+
+  const { openMenu, setOpenMenu } = useContext(MenuContext);
+
+  function closeModal() {
+    setOpenMenu(false);
+  }
+
+  return (
+    <div>
+      <Modal
+        isOpen={openMenu}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <div className={styles.wrapper}>
+          <div className={styles.container}>
+            <div className={styles.logoContainer}>
+              <div className={styles.close}>
+                <img src={close} alt="icon" />
+              </div>
+              <div className={styles.logo}>
+                <img src={logo} alt="logo" />
+              </div>
+              <div className={styles.closeMobile}>
+                <img src={close} alt="icon" />
+              </div>
+            </div>
+            <ul className={styles.ul}>
+              <li>
+                <a className={styles.text} href="#">
+                  Nytt på IKEA
+                </a>
+              </li>
+              <li>
+                <a className={styles.text} href="#">
+                  Produkter
+                </a>
+              </li>
+              <li>
+                <a className={styles.text} href="#">
+                  Rum
+                </a>
+              </li>
+            </ul>
+            <ul className={styles.ul2}>
+              {links.map((link, i) => (
+                <li key={i}>
+                  <a href="#">{link}</a>
+                </li>
+              ))}
+            </ul>
+            <button>Ändra land</button>
+          </div>
         </div>
-    )
+      </Modal>
+    </div>
+  );
 }
+
+const links = [
+  "Följ min order",
+  "Kundservice",
+  "Boka planeringshjälp",
+  "Planeringsverktyg",
+  "Inredningsdesigner",
+  "IKEA för företag",
+  "IKEA Family",
+  "IKEA Restaurang & Bistro",
+  "Swedish Food Market Click & collect",
+  "Cirkulärbutiken",
+  "Live shopping",
+];
+
+export default App;
