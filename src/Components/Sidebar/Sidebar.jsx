@@ -10,8 +10,9 @@ const customStyles = {
   content: {
     top: "0",
     left: "0",
-    width: "30%",
-    
+    width: 'auto',
+    height: '100%',
+
   },
 };
 
@@ -35,13 +36,13 @@ function App() {
         <div className={styles.wrapper}>
           <div className={styles.container}>
             <div className={styles.logoContainer}>
-              <div className={styles.close}>
-                <img src={close} alt="icon" />
+              <div className={styles.close} onClick={()=>closeModal()}>
+                <img src={close} alt="icon"/>
               </div>
               <div className={styles.logo}>
                 <img src={logo} alt="logo" />
               </div>
-              <div className={styles.closeMobile}>
+              <div className={styles.closeMobile} onClick={()=>closeModal()}>
                 <img src={close} alt="icon" />
               </div>
             </div>
