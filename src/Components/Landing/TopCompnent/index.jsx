@@ -14,6 +14,9 @@ export default function index() {
           Erbjudandet gäller 1/11 - 30/11 2021, så långt lagret räcker, för dig
           som är (eller blir) IKEA Family medlem.
         </div>
+        <div>
+          VINTER 2021 konstgjord julgran 210 cm 796:- (ordinarie pris 995:-)
+        </div>
         <button>Se alla erbjudanden</button>
       </div>
     </div>
