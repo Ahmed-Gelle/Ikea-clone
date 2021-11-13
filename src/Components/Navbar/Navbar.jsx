@@ -8,6 +8,7 @@ import {MenuContext} from '../../App'
 import person from '../../../src/assets/person.png'
 import heart from '../../../src/assets/heart.png'
 import bag from '../../../src/assets/bag.png'
+import camera from '../../../src/assets/camera.svg'
 import menu from '../../../src/assets/menu.png'
 import { style } from '@mui/system'
 import Sidebar from '../Sidebar/Sidebar'
@@ -37,7 +38,7 @@ export default function Navbar() {
                     <ul className={styles.ul}>
                         <li>
                             <a className={styles.text} href="/">
-                                Nytt på IKEA
+                                Juat NU
                             </a>
                         </li>
                         <li>
@@ -57,6 +58,7 @@ export default function Navbar() {
                     <form action="/" className={styles.form}>
                         {/* <img src={search} alt="" className={styles.inputIcon1}/> */}
                         <input type="text" className={styles.input} placeholder="Vad letar du efter?"/>
+                        <a href="/" className={styles.btn}><img src={camera} alt="icon"/></a>
                         {/* <button type="submit" className={styles.btn}>
                         <img src={camera} alt=""/>
                         </button> */}
