@@ -55,15 +55,15 @@ export default function Navbar() {
                     </ul>
                 </div>
                 <div className={styles.Search}>
-                    <form action="/" className={styles.form}>
+                    <div action="/" className={styles.form}>
                         {/* <img src={search} alt="" className={styles.inputIcon1}/> */}
                         <input type="text" className={styles.input} placeholder="Vad letar du efter?"/>
-                        <a href="/" className={styles.btn}><img src={camera} alt="icon"/></a>
+                        <button href="/" className={styles.btn}></button>
                         {/* <button type="submit" className={styles.btn}>
                         <img src={camera} alt=""/>
                         </button> */}
 
-                    </form>
+                    </div>
                 </div>
                 <div className={styles.icons}>
                     <ul className={styles.ul}>
@@ -80,6 +80,11 @@ export default function Navbar() {
                         <li>
                             <a className={style.link} href="/">
                                 <img className={style.icons} src={bag} alt="person" />
+                            </a>
+                        </li>
+                        <li className={style.menuRes}>
+                            <a className={style.link} href="/">
+                                <img className={style.icons} src={menu} alt="person" />
                             </a>
                         </li>
                         {/* <li>
