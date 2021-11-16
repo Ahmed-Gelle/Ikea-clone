@@ -25,10 +25,11 @@ export default function Navbar() {
         <>
         {openMenu? <Sidebar/>:''}
         <div className={styles.NavContainer}>
-            <nav className={styles.Nav}>
-                 <div className={styles.menu} onClick={()=>openMenuHandling()}>
+        <div className={styles.menu} onClick={()=>openMenuHandling()}>
                     <img src={menu} alt="menu"/>
                 </div> 
+            <nav className={styles.Nav}>
+
                
            
                 <div className={styles.Logo}>
@@ -38,7 +39,7 @@ export default function Navbar() {
                     <ul className={styles.ul}>
                         <li>
                             <a className={styles.text} href="/">
-                                Juat NU
+                                Just NU
                             </a>
                         </li>
                         <li>
