@@ -22,11 +22,11 @@
 
 }
 .menu{
-    left: 5rem;
     padding-bottom: 1rem;
+    margin-right: 3rem ;
 }
 .Logo{
-    width: 90px;
+    min-width: 90px;
     height: 36px;
    
 }
@@ -119,5 +119,12 @@ input:focus{
     }
     .menuRes{
         display:inline;
+    }
+    .titles{
+        display:none;
+    }
+
+    .Search{
+        margin: 0 2rem;
     }
 }
